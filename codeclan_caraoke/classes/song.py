@@ -1,6 +1,6 @@
 class Song:
 
-    def __init__(self, name, genre):
-        song_catlouge = []
-        self.name = name
-        self.self = genre
+    def __init__(self, title, artist):
+        self.title = title
+        self.artist = artist
+        self.song_list = []

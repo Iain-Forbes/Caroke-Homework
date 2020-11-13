@@ -6,4 +6,10 @@ from classes.guest import Guest
 class TestSong(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.song = Song("Saviour", "Rise Against")
+    
+    def test_song_has_title(self):
+       self.assertEqual("Saviour", self.song.title)
+
+    def test_song_has_artits(self):
+        self.assertEqual("Rise Against", self.song.artist)
