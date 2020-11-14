@@ -10,6 +10,5 @@ class Room:
     def book_room(self, guest): 
         self.booked_guest.append(guest)
 
-
     
     
