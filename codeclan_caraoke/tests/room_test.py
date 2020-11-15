@@ -6,7 +6,7 @@ from classes.guest import Guest
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        self.room = Room("Karoke Room 1", "Saviour")
+        self.room = Room("Karoke Room 1", "Saviour", 0, 3)
         self.guest = Guest("Baron Humperdink", 20, 40)
         self.song_1 =  Song("Saviour",  "Rise Against")
      
@@ -26,6 +26,18 @@ class TestRoom(unittest.TestCase):
     #Test song is added to room 
     def test_add_song_to_room(self):
         self.assertEqual(self.room.song_selection, "Saviour")
+
+    #Test room has cash, starts at 0
+    def test_room_has_cash(self):
+        self.assertEqual(self.room.total_cash, 0)
+
+    #Test that Karoke machine takes £3 and adds to total cash.
+    def test_karoke_machine_charge(self):
+        self.room.karoke_machine_charge(self.room.karoke_cost)
+        self.assertEqual(3, self.room.total_cash)
+
+
+  
 
    
         
