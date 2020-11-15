@@ -7,8 +7,9 @@ class TestRoom(unittest.TestCase):
 
     def setUp(self):
         self.room = Room("Karoke Room 1", "Saviour")
-        self.guest = Guest("Baron Humperdink", 17)
+        self.guest = Guest("Baron Humperdink", 20, 40)
         self.song_1 =  Song("Saviour",  "Rise Against")
+     
 
     def test_check_room_number(self):
         self.assertEqual("Karoke Room 1", self.room.room_number)
@@ -22,6 +23,7 @@ class TestRoom(unittest.TestCase):
         
     def test_add_song_to_room(self):
         self.assertEqual(self.room.song_selection, "Saviour")
- 
+
+   
         
 
