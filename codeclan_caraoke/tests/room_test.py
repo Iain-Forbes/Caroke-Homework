@@ -36,6 +36,11 @@ class TestRoom(unittest.TestCase):
         self.room.karoke_machine_charge(self.room.karoke_cost)
         self.assertEqual(3, self.room.total_cash)
 
+    def test_guest_charged(self):
+        self.guest.charge_guest(self.room.karoke_cost)
+        self.assertEqual(37, self.guest.wallet)
+
+
 
   
 

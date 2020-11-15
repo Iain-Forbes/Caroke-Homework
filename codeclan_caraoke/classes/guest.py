@@ -5,7 +5,9 @@ class Guest:
        self.age = age
        self.wallet = wallet
        
-       
+    def charge_guest(self, money_out):
+        self.wallet -= money_out
+     
 
  
 

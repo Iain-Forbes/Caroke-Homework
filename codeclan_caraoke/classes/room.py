@@ -26,7 +26,8 @@ class Room:
     #Increase Total Cash by Karoke Machine Cost
     def karoke_machine_charge(self, money_in):
         self.total_cash += money_in
-    
+
+
         
 
 
