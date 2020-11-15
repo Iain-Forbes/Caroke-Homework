@@ -15,10 +15,15 @@ class Room:
     #Add Guest to Booked List
     def book_room(self, guest): 
         self.booked_guest.append(guest)
+    
+    #Remove Guest
+    def clear_guest(self):
+        self.booked_guest.clear()
 
     #Add Song to Room
     def add_song_to_room(self, song):
         self.song_selection.append(song)
+        return self.song_selection
 
     #Return Total Cash
     def get_cash_total(self):
@@ -35,10 +40,14 @@ class Room:
         else:
             return False
 
+    #Get and store guest favorite song
+    def get_guest_fav_song(self, guest):
+        return guest.fav_song        
 
-        
-
-
-
-    
-    
+    #Non-working function to woo at fav song
+    def woo_at_fave_song(self, guest, song):
+        fav_song = self.get_guest_fav_song(guest)
+        if fav_song == self.song_selection:
+            print ("Wooo")
+        else:
+            print ("Boo")

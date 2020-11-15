@@ -7,10 +7,12 @@ class TestRoom(unittest.TestCase):
 
     def setUp(self):
         self.room = Room("Karoke Room 1", "Saviour", 0, 3, 2)
-        self.guest_1 = Guest("Baron Humperdink", 25, 40)
-        self.guest_2 = Guest("Baron Von Jon", 45, 40)
-        self.guest_3 = Guest("Baron Steve", 65, 40)
+        self.guest_1 = Guest("Baron Von Humperdink", 25, 40, "Saviour")
+        self.guest_2 = Guest("Baron Von Jon", 45, 40, "Faith Alone")
+        self.guest_3 = Guest("Baron Steve", 65, 40, "Blitzkrieg Bop")
         self.song_1 =  Song("Saviour",  "Rise Against")
+        self.song_2 =  Song("Blitzkrieg Bop",  "Ramones")
+        self.song_3 =  Song("Faith Alone",  "Bad Religion")
      
     #Test room has name 
     def test_check_room_number(self):
@@ -24,7 +26,13 @@ class TestRoom(unittest.TestCase):
     def test_room_booking(self):
         self.room.book_room(self.guest_1)
         self.assertEqual(1, self.room.booked_count())
-        
+
+    #Check clear room function
+    def test_clear_guest(self):
+        self.room.book_room(self.guest_1)
+        self.room.clear_guest()
+        self.assertEqual(0, self.room.booked_count())
+    
     #Test song is added to room 
     def test_add_song_to_room(self):
         self.assertEqual(self.room.song_selection, "Saviour")
@@ -59,6 +67,22 @@ class TestRoom(unittest.TestCase):
         self.room.book_room(self.guest_2)
         self.room.book_room(self.guest_3)
         self.assertEqual(False, self.room.check_room_has_space())
+
+    #Test we can store favorite song
+    def test_get_fav_song(self):
+           self.room.get_guest_fav_song(self.guest_2)
+           self.assertEqual(self.guest_2.fav_song, "Faith Alone")
+
+    # def test_woo_at_fav_song(self):
+    #     self.room.woo_at_fave_song(self.room.get_guest_fav_song(self.guest_3), self.room.song_selection())
+    #     self.assertEqual("woo")
+
+
+        
+        
+
+
+       
 
   
 
